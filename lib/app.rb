@@ -37,6 +37,10 @@ class App
     # end
 
     def add_activity(activity_input)
-        @activities << { activity: activity_input, ticked: false}
+        @activities << { activity: activity_input, ticked: false, }
+    end
+
+    def display_add_activity
+        puts 'Enter your Bucket List Activity'
     end
 end
