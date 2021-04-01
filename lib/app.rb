@@ -1,5 +1,6 @@
 class App
     attr_accessor :activities
+    
     def initialize
         @activities = []
     end
@@ -27,12 +28,15 @@ class App
         puts "---" * 30
     end
 
-    def display_menu
+    # def display_menu
 
+    # end
+
+    # def select_menu
+
+    # end
+
+    def add_activity(activity_input)
+        @activities << { activity: activity_input, ticked: false}
     end
-
-    def select_menu
-
-    end
-    
 end
