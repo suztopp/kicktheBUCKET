@@ -1,4 +1,4 @@
 require_relative 'lib/app'
 
-todo = App.new
-todo.run
+kickthebucket = App.new
+kickthebucket.run_normal
