@@ -22,6 +22,8 @@ class App
     def menu_selector(option_select)
         case option_select
         when 1
+            display_add_activity
+            add_activity(activity_add)
             #setup activity list
         when 2
             #view activity list
@@ -32,7 +34,7 @@ class App
         when 5
             #see ticked progress
         when 6
-            #exit  
+            exit  
         end
     end
 
@@ -60,14 +62,26 @@ class App
     end
 
     def add_activity(activity_input)
-        @activities << { activity: activity_input, ticked: false, }
+        @activities << { activity: activity_input, time_needed: activity_input, activity_reason: activity_input, ticked: false, }
     end
 
     def display_add_activity
-        puts 'Enter your Bucket List Activity'
+        puts 'Enter your Dream Bucket List Activity:'
+        activity_add 
+        puts 'Enter the TIME GOAL for your Bucket List Activity (in years):'
+        activity_add
+        puts 'Enter the REASON you have chosen this Activity:'
+        activity_add
     end
 
-    def add_activity
+    def activity_add
         gets.strip
+    end
+
+    def display_activities
+        puts 'BUCKET LIST ACTIVITIES:'
+        @activities.each do |activity, index|
+            puts "#{index + 1}. #{activity[:activity]} - #{activity[:time_needed]} - #{activity[:activity_reason]} - [#{activity[:ticked] ? 'TICKED' : '  '}]"
+        end
     end
 end
