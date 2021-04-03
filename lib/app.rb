@@ -26,8 +26,13 @@ class App
             add_activity(activity_add)
             #setup activity list
         when 2
+            display_activities
             #view activity list
         when 3
+            display_activities
+            index = select_activity
+            display_add_activity
+            edit_activity(add_activity, index)
             #edit activities
         when 4
             #marked activities ticked
@@ -79,9 +84,17 @@ class App
     end
 
     def display_activities
-        puts 'BUCKET LIST ACTIVITIES:'
+        puts 'YOUR BUCKET LIST ACTIVITIES:'
         @activities.each do |activity, index|
             puts "#{index + 1}. #{activity[:activity]} - #{activity[:time_needed]} - #{activity[:activity_reason]} - [#{activity[:ticked] ? 'TICKED' : '  '}]"
         end
+    end
+
+    def edit_activity(edited_activity, index)
+        @activities[index][:activity] = edited_activity
+    end
+
+    def select_activity
+        gets.to_i - 1
     end
 end
