@@ -1,7 +1,9 @@
 # kicktheBUCKET
 ## Ruby Terminal App by Suz Topp
 
-## Your POST COVID Bucket List Extravaganza App
+### Your POST COVID Bucket List Extravaganza App
+
+<img src='images/homescreen1.png' alt="home screen pic" width=600px>
 
 #### Install
 
@@ -15,3 +17,12 @@
 - rspec gem
 - artii gem
 - json gem
+
+#### Links for Gems
+
+https://rubygems.org/gems/artii/versions/2.1.2
+
+https://rubygems.org/gems/json
+
+https://rubygems.org/gems/rspec/versions/3.5.0
+
