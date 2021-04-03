@@ -1,3 +1,6 @@
+require 'json'
+require 'artii'
+
 class App
     attr_accessor :activities
     
@@ -51,7 +54,10 @@ class App
 
     def display_welcome
         puts "Welcome to:"
-        puts "KICK THE BUCKET!!"
+        a = Artii::Base.new
+        puts a.asciify('KICK THE BUCKET!!')
+        # puts "KICK THE BUCKET!!"
+        bucket_logo
         puts "---" * 30
         puts "Your one stop destination for making"
         puts "10 POST COVID dreams come to life!"
@@ -106,5 +112,27 @@ class App
 
     def select_activity
         gets.to_i - 1
+    end
+
+    def bucket_logo
+        puts "
+            _______
+        _.-()______)-._
+      .'               '.
+     |                   |
+    |.--```---------```--.|
+    (                     )
+    :`--..._________...--`:
+    :                     :
+     :                   :
+     :                   :
+      :                 :
+      :                 :
+       :               :
+       :               :
+        :             :
+        :_           _:
+          '''-----'''
+        "
     end
 end
