@@ -27,7 +27,6 @@ class App
         when 1
             until @activities.length == 10 do
                 display_add_activity
-                add_activity(activity_add)
             end 
             run_normal
             #setup activity list
@@ -85,12 +84,14 @@ class App
     end
 
     def display_add_activity
+        puts "---" * 30
+        puts 'NEW ACTIVITY'
         print 'Enter your Dream Bucket List Activity:  '
-        activity_add 
+        add_activity(activity_add)
         print 'Enter the TIME GOAL for your Bucket List Activity (ie. one year, five years):  '
-        activity_add
+        add_activity(activity_add)
         print 'Enter the REAL REASON you have chosen this Activity:  '
-        activity_add
+        add_activity(activity_add)
     end
 
     def activity_add
