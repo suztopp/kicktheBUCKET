@@ -25,7 +25,6 @@ class App
     def menu_selector(option_select)
         case option_select
         when 1
-            # index = 0
             until @activities.length == 10 do
                 display_add_activity
                 add_activity(activity_add)
@@ -86,13 +85,12 @@ class App
     end
 
     def display_add_activity
-        puts 'Enter your Dream Bucket List Activity:'
+        print 'Enter your Dream Bucket List Activity:  '
         activity_add 
-        puts 'Enter the TIME GOAL for your Bucket List Activity (ie. one year, 5 years):'
+        print 'Enter the TIME GOAL for your Bucket List Activity (ie. one year, five years):  '
         activity_add
-        puts 'Enter the REAL REASON you have chosen this Activity:'
+        print 'Enter the REAL REASON you have chosen this Activity:  '
         activity_add
-        puts ('COMPLETED - Enter for the next Activity').chomp
     end
 
     def activity_add

@@ -6,7 +6,7 @@
 #### Install
 
 1. CD into kicktheBUCKET
-2. ruyn 'bundle install'
+2. run 'bundle install'
 
 #### Dependencies
 
