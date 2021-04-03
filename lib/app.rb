@@ -5,9 +5,9 @@ class App
         @activities = []
     end
 
-    def run
+    # def run
 
-    end
+    # end
 
     def run_normal
         loop do
@@ -31,6 +31,8 @@ class App
             #setup activity list
         when 2
             display_activities
+            puts 'OPTIONS:'
+            # display_menu
             #view activity list
         when 3
             display_activities
@@ -64,6 +66,9 @@ class App
         puts '4. Mark Activities as TICKED OFF'
         puts '5. See Your Ticked Progress'
         puts '6. EXIT to REAL LIFE'
+        puts "---" * 30
+        puts 'ENTER THE NUMBER OF YOUR CHOICE BELOW'
+        puts "---" * 30
     end
 
     def select_menu
@@ -72,7 +77,6 @@ class App
 
     def add_activity(activity_input)
         @activities << { activity: activity_input, time_needed: activity_input, activity_reason: activity_input, ticked: false, }
-
     end
 
     def display_add_activity
@@ -80,8 +84,9 @@ class App
         activity_add 
         puts 'Enter the TIME GOAL for your Bucket List Activity (ie. one year, 5 years):'
         activity_add
-        puts 'Enter the REASON you have chosen this Activity:'
+        puts 'Enter the REAL REASON you have chosen this Activity:'
         activity_add
+        puts ('COMPLETED - Enter for the next Activity').chomp
     end
 
     def activity_add
