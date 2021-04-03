@@ -5,9 +5,9 @@ class App
         @activities = []
     end
 
-    # def run
+    def run
 
-    # end
+    end
 
     def run_normal
         loop do
@@ -15,7 +15,24 @@ class App
             display_welcome
             puts "---" * 30
             display_menu
-            select_menu
+            menu_selector(select_menu)
+        end
+    end
+
+    def menu_selector(option_select)
+        case option_select
+        when 1
+            #setup activity list
+        when 2
+            #view activity list
+        when 3
+            #edit activities
+        when 4
+            #marked activities ticked
+        when 5
+            #see ticked progress
+        when 6
+            #exit  
         end
     end
 
@@ -28,13 +45,19 @@ class App
         puts "---" * 30
     end
 
-    # def display_menu
+    def display_menu
+        puts 'KICK THE BUCKET OPTIONS:'
+        puts '1. Set Up Your 10 Activities'
+        puts '2. View Your Activities List'
+        puts '3. Edit Your Activites'
+        puts '4. Mark Activities as TICKED OFF'
+        puts '5. See Your Ticked Progress'
+        puts '6. EXIT to REAL LIFE'
+    end
 
-    # end
-
-    # def select_menu
-
-    # end
+    def select_menu
+        gets.to_i
+    end
 
     def add_activity(activity_input)
         @activities << { activity: activity_input, ticked: false, }
@@ -42,5 +65,9 @@ class App
 
     def display_add_activity
         puts 'Enter your Bucket List Activity'
+    end
+
+    def add_activity
+        gets.strip
     end
 end
