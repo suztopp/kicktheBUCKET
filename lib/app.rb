@@ -4,8 +4,10 @@ require 'artii'
 class App
     attr_accessor :activities
     
-    def initialize
+    def initialize(file_path)
         @activities = []
+        @file_path = file_path
+        load_data(file_path)
     end
 
     # def run
@@ -48,6 +50,7 @@ class App
         when 5
             #see ticked progress
         when 6
+            File.write(@file_path, @activities.to_json)
             exit  
         end
     end
@@ -81,6 +84,13 @@ class App
         gets.to_i
     end
 
+    def load_data(file_path)
+        json_data = JSON.parse(File.read(file_path))
+        @activities = json_data.map do |activity|
+            activity.transform_keys(&:to_sym)
+        end
+    end
+    
     def add_activity(activity_input)
         @activities << { activity: activity_input, time_needed: activity_input, activity_reason: activity_input, ticked: false, }
     end
