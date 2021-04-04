@@ -58,10 +58,10 @@ class App
         puts a.asciify('KICK THE BUCKET!!')
         # puts "KICK THE BUCKET!!"
         bucket_logo
-        puts "---" * 30
+        puts "---" * 40
         puts "Your one stop destination for making"
         puts "10 POST COVID dreams come to life!"
-        puts "---" * 30
+        puts "---" * 40
     end
 
     def display_menu
@@ -72,9 +72,9 @@ class App
         puts '4. Mark Activities as TICKED OFF'
         puts '5. See Your Ticked Progress'
         puts '6. EXIT to REAL LIFE'
-        puts "---" * 30
+        puts "---" * 40
         puts 'ENTER THE NUMBER OF YOUR CHOICE BELOW'
-        puts "---" * 30
+        puts "---" * 40
     end
 
     def select_menu
@@ -86,17 +86,17 @@ class App
     end
 
     def display_add_activity
-        puts "---" * 30
+        puts "---" * 40
         puts 'NEW ACTIVITY'
         print 'Enter your Dream Bucket List Activity:  '
-        add_activity(activity_add)
+        add_activity(activity_info)
         print 'Enter the TIME GOAL for your Bucket List Activity (ie. one year, five years):  '
-        add_activity(activity_add)
+        add_activity(activity_info)
         print 'Enter the REAL REASON you have chosen this Activity:  '
-        add_activity(activity_add)
+        add_activity(activity_info)
     end
 
-    def activity_add
+    def activity_info
         gets.strip
     end
 
