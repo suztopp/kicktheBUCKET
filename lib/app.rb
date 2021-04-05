@@ -1,18 +1,38 @@
 require 'json'
 require 'artii'
 
+
+
+
+
+class Activities
+    attr_accessor :activity_name, :time_needed, :activity_reason, :ticked
+    def initialize (activity_name, time_needed, reason)
+        @activity_name = activity_name
+        @time_needed = time_needed
+        @reason = reason
+        @ticked = false
+    end
+end
+
+
+
+
+
 class App
     attr_accessor :activities
     
     def initialize
-        @activities = []
+        # @activities = []
         # @file_path = file_path
         # load_data(file_path)
     end
 
+
     # def run
 
     # end
+    activities = []
 
     def run_normal
         loop do
@@ -27,7 +47,7 @@ class App
     def menu_selector(option_select)
         case option_select
         when 1
-            until @activities.length == 10 do
+            until @activities.length == 2 do
                 system 'clear'
                 display_add_activity
             end 
@@ -106,23 +126,29 @@ class App
         time_needed = gets.chomp
         print 'Enter the REAL REASON you have chosen this Activity:  '
         activity_reason = gets.chomp
-        @activities << [
-            activity: activity_name,
-            time_needed: time_needed,
-            reason: activity_reason,
-            ticked: false
-        ]
+        # @activities << [
+        #     activity: activity_name,
+        #     time_needed: time_needed,
+        #     reason: activity_reason,
+        #     ticked: false
+        # ]
+        activity - new activities(activity_name, time_needed, activity_reason)
     end
 
     # def activity_info
     #     gets.strip
     # end
 
+    def display_activity(activity)
+
+    end
+    
     def display_activities
         a = Artii::Base.new
         puts a.asciify('BUCKET LIST ACTIVITIES')
-        @activities.each_with_index do |activity,index|
-            pp "#{index+1}. Activity: #{activity[:time_needed]}".to_s
+        # @activities.each_with_index do |activity,index|
+        #     puts "#{index+1} Activity: #{activity[:activity]}"
+        while 
         end
     end
 
