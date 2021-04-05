@@ -36,7 +36,7 @@ class App
         when 2
             system 'clear'
             display_activities
-            # puts 'OPTIONS:'
+            puts 'OPTIONS:'
             display_menu
             #view activity list
         when 3
@@ -45,7 +45,6 @@ class App
             puts 'Enter Your Choice Below for ACTIVITY TO EDIT'
             index = select_activity
             display_add_activity
-            edit_activity(add_activity, index)
             #edit activities
         when 4
             #marked activities ticked
@@ -120,8 +119,8 @@ class App
 
     def display_activities
         puts 'YOUR BUCKET LIST ACTIVITIES:'
-        @activities.each_with_index do |activity, index|
-            puts "#{index}. #{activity[:activity]}, #{activity[:time]}, #{activity[:reason]}, [#{activity[:ticked] ? 'TICKED' : ' '}]"
+        @activities.each do |activity|
+            pp "#{activity}"
         end
     end
 
