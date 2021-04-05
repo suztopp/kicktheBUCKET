@@ -98,7 +98,8 @@ class App
 
     def display_add_activity
         puts "---" * 40
-        puts 'NEW ACTIVITY'
+        a = Artii::Base.new
+        puts a.asciify('ACTIVITY INFO')
         print 'Enter your Dream Bucket List Activity:  '
         activity_name = gets.chomp
         print 'Enter the TIME GOAL for your Bucket List Activity (ie. one year, five years):  '
@@ -107,7 +108,7 @@ class App
         activity_reason = gets.chomp
         @activities << [
             activity: activity_name,
-            time: time_needed,
+            time_needed: time_needed,
             reason: activity_reason,
             ticked: false
         ]
@@ -118,9 +119,10 @@ class App
     # end
 
     def display_activities
-        puts 'YOUR BUCKET LIST ACTIVITIES:'
+        a = Artii::Base.new
+        puts a.asciify('BUCKET LIST ACTIVITIES')
         @activities.each_with_index do |activity,index|
-            pp "#{index+1}. Activity: #{activity}"
+            pp "#{index+1}. Activity: #{activity[:time_needed]}".to_s
         end
     end
 
