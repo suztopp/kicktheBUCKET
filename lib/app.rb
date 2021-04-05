@@ -119,8 +119,8 @@ class App
 
     def display_activities
         puts 'YOUR BUCKET LIST ACTIVITIES:'
-        @activities.each do |activity|
-            pp "#{activity}"
+        @activities.each_with_index do |activity,index|
+            pp "#{index+1}. Activity: #{activity}"
         end
     end
 
