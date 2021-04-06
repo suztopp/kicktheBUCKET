@@ -21,7 +21,6 @@ end
 
 
 
-
 class App
     
     # def initialize
@@ -53,13 +52,18 @@ class App
                 system 'clear'
                 display_add_activity
             end 
-            run_normal
+            system 'clear'
+            puts "---" * 40
+            display_menu
+            menu_selector(select_menu)
             #setup activity list
         when 2
             system 'clear'
             display_activities
+            puts "---" * 40
             puts 'OPTIONS:'
             display_menu
+            menu_selector(select_menu)
             #view activity list
         when 3
             system 'clear'
@@ -67,7 +71,9 @@ class App
             puts 'Enter Your Number Choice Below for ACTIVITY TO EDIT'
             index = select_activity
             edit_activity(build_activity ,index)
+            puts "---" * 40
             display_menu
+            menu_selector(select_menu)
         when 4
             #marked activities ticked
         when 5
@@ -117,14 +123,11 @@ class App
 
     # def load_data(file_path)
     #     json_data = JSON.parse(File.read(file_path))
-    #     @activities = json_data.map do |activity|
+    #     $activities = json_data.map do |activity|
     #         activity.transform_keys(&:to_sym)
     #     end
     # end
     
-    # def add_activity(activity_input)
-    #     @activities << { activity: activity_input, time_needed: activity_input, activity_reason: activity_input, ticked: false, }
-    # end
 
 
     def build_activity
@@ -138,12 +141,7 @@ class App
         time_needed = gets.chomp
         print 'Enter the REAL REASON you have chosen this Activity:  '
         activity_reason = gets.chomp
-        # @activities << [
-        #     activity: activity_name,
-        #     time_needed: time_needed,
-        #     reason: activity_reason,
-        #     ticked: false
-        # ]
+
         activity = Activities.new(activity_name,time_needed,activity_reason)
     end
 
@@ -171,7 +169,7 @@ class App
 
     def display_activities
         a = Artii::Base.new
-        puts a.asciify('BUCKET LIST ACTIVITIES')
+        puts a.asciify('BUCKET ACTIVITIES')
         
         for i in 0...$activities.length                     #index 0 to last index including
             display_activity($activities[i],i)              #uses display_activity method to output each index for the Activities array, along with details
