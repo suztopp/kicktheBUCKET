@@ -2,6 +2,7 @@ require 'json'
 require 'artii'
 require 'progress_bar'
 require 'tty-prompt'
+require 'colorize'
 
 $activities = []                        #global
 
@@ -59,6 +60,9 @@ class App
             end 
             system 'clear'
             puts "---" * 40
+            puts "---" * 40
+            a = Artii::Base.new
+            puts a.asciify('OPTIONS').green.on_black
             display_menu
             # menu_selector(select_menu)
             #setup activity list
@@ -76,9 +80,13 @@ class App
             puts 'Enter Your Number Choice Below for ACTIVITY TO EDIT'
             index = select_activity
             edit_activity(build_activity ,index)
+            system 'clear'
+            a = Artii::Base.new
+            puts a.asciify('OPTIONS').green.on_black
             puts "---" * 40
             display_menu
             # menu_selector(select_menu)
+            #edit activities
         when 4
             system 'clear'
             display_activities
@@ -91,6 +99,7 @@ class App
             # menu_selector(select_menu)
             #marked activities ticked
         when 5
+            system 'clear'
             progress_bar
             puts "---" * 40
             display_menu
@@ -107,7 +116,7 @@ class App
     def display_welcome
         puts "Welcome to:"
         a = Artii::Base.new
-        puts a.asciify('KICK THE BUCKET!!')
+        puts a.asciify('KICK THE BUCKET!!').green.on_black
         # puts "KICK THE BUCKET!!"
         bucket_logo
         puts "---" * 40
@@ -164,7 +173,7 @@ class App
     def build_activity
         puts "---" * 40
         a = Artii::Base.new
-        puts a.asciify('ACTIVITY INFO')
+        puts a.asciify('ACTIVITY INFO').green.on_black
 
         print 'Enter your Dream Bucket List Activity:  '
         activity_name = gets.chomp
@@ -200,7 +209,7 @@ class App
 
     def display_activities
         a = Artii::Base.new
-        puts a.asciify('BUCKET ACTIVITIES')
+        puts a.asciify('BUCKET ACTIVITIES').green.on_black
         
         for i in 0...$activities.length                     #index 0 to last index including
             display_activity($activities[i],i)              #uses display_activity method to output each index for the Activities array, along with details
@@ -227,6 +236,9 @@ class App
 
 
     def progress_bar
+        puts "---" * 40
+        a = Artii::Base.new
+        puts a.asciify('ACTIVITY PROGRESS').green.on_black
         bar = ProgressBar.new(100, :bar, :percentage)
         bar.puts "YOU CAN DO IT!!!!!!!!!!!!!"
         number = $activities.count {|activity| activity.ticked}
