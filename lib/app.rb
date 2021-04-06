@@ -1,6 +1,7 @@
 require 'json'
 require 'artii'
 require 'progress_bar'
+require 'tty-prompt'
 
 
 $activities = []                        #global
@@ -24,6 +25,11 @@ end
 
 class App
 
+    def initialize
+        @bar = ProgressBar.new(100, :bar, :percentage)
+        @prompt = TTY::Prompt.new
+    end
+
     # def run
 
     # end
@@ -33,8 +39,17 @@ class App
             # system 'clear'
             display_welcome
             puts "---" * 40
-            display_menu
-            menu_selector(select_menu)
+            # display_menu
+            # menu_selector(select_menu)
+            input = @prompt.select('KICK THE BUCKET OPTIONS:') do |menu|
+                menu.choice 'Set Up Your 10 Activities', 1
+                menu.choice 'View Your Activities List', 2
+                menu.choice 'Edit Your Activities', 3
+                menu.choice 'Mark Activities as TICKED OFF', 4
+                menu.choice 'See Your Ticked Progress', 5
+                menu.choice 'EXIT to REAL LIFE', 6
+            end
+            menu_selector(input)
         end
     end
 
@@ -82,7 +97,6 @@ class App
             #marked activities ticked
         when 5
             progress_bar
-
             puts "---" * 40
             display_menu
             menu_selector(select_menu)
@@ -205,15 +219,13 @@ class App
 
 
     def progress_bar
-        
         bar = ProgressBar.new(100, :bar, :percentage)
-
-        1.times do
-        sleep 0.1
-        bar.increment! 10
-        bar.puts "YOU CAN DO IT"
+        bar.puts "YOU CAN DO IT!!!!!!!!!!!!!"
+        number = $activities.count {|activity| activity.ticked}
+        number.times do
+            sleep 0.1
+            bar.increment! 10
         end
-
     end
 
 

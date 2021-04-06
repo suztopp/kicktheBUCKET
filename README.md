@@ -49,6 +49,10 @@ https://rubygems.org/gems/json
 
 https://rubygems.org/gems/rspec/versions/3.5.0
 
+https://rubygems.org/gems/progress_bar
+
+---
+
 #### FEATURES
 
 ---
