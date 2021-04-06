@@ -3,10 +3,7 @@ require 'artii'
 require 'progress_bar'
 require 'tty-prompt'
 
-
 $activities = []                        #global
-
-
 
 class Activities
 
@@ -15,12 +12,10 @@ class Activities
         @activity_name = activity_name
         @time_needed = time_needed
         @activity_reason = activity_reason
-        @ticked = false                        #starts each instance of activity as FALSE - not ticked off
+        @ticked = false                        #starts each instance of activity as FALSE - not ticked off - so it can be changed as they do them
     end
 
 end
-
-
 
 
 class App
@@ -39,17 +34,17 @@ class App
             # system 'clear'
             display_welcome
             puts "---" * 40
-            # display_menu
+            display_menu
             # menu_selector(select_menu)
-            input = @prompt.select('KICK THE BUCKET OPTIONS:') do |menu|
-                menu.choice 'Set Up Your 10 Activities', 1
-                menu.choice 'View Your Activities List', 2
-                menu.choice 'Edit Your Activities', 3
-                menu.choice 'Mark Activities as TICKED OFF', 4
-                menu.choice 'See Your Ticked Progress', 5
-                menu.choice 'EXIT to REAL LIFE', 6
-            end
-            menu_selector(input)
+            # input = @prompt.select('KICK THE BUCKET OPTIONS:') do |menu|
+            #     menu.choice 'Set Up Your 10 Activities', 1
+            #     menu.choice 'View Your Activities List', 2
+            #     menu.choice 'Edit Your Activities', 3
+            #     menu.choice 'Mark Activities as TICKED OFF', 4
+            #     menu.choice 'See Your Ticked Progress', 5
+            #     menu.choice 'EXIT to REAL LIFE', 6
+            # end
+            # menu_selector(input)
         end
     end
 
@@ -65,7 +60,7 @@ class App
             system 'clear'
             puts "---" * 40
             display_menu
-            menu_selector(select_menu)
+            # menu_selector(select_menu)
             #setup activity list
         when 2
             system 'clear'
@@ -73,7 +68,7 @@ class App
             puts "---" * 40
             puts 'OPTIONS:'
             display_menu
-            menu_selector(select_menu)
+            # menu_selector(select_menu)
             #view activity list
         when 3
             system 'clear'
@@ -83,7 +78,7 @@ class App
             edit_activity(build_activity ,index)
             puts "---" * 40
             display_menu
-            menu_selector(select_menu)
+            # menu_selector(select_menu)
         when 4
             system 'clear'
             display_activities
@@ -93,13 +88,13 @@ class App
             puts "#{index+1}. Activity: #{$activities[index].activity_name} is now TICKED OFF WOO!!!!!!!!!"
             puts "---" * 40
             display_menu
-            menu_selector(select_menu)
+            # menu_selector(select_menu)
             #marked activities ticked
         when 5
             progress_bar
             puts "---" * 40
             display_menu
-            menu_selector(select_menu)
+            # menu_selector(select_menu)
             #see ticked progress
         when 6
             # File.write(@file_path, @activities.to_json)
@@ -124,15 +119,28 @@ class App
 
 
     def display_menu
-        puts 'KICK THE BUCKET OPTIONS:'
-        puts '1. Set Up Your 10 Activities'
-        puts '2. View Your Activities List'
-        puts '3. Edit Your Activites'
-        puts '4. Mark Activities as TICKED OFF'
-        puts '5. See Your Ticked Progress'
-        puts '6. EXIT to REAL LIFE'
-        puts "---" * 40
-        puts 'ENTER THE NUMBER OF YOUR CHOICE BELOW'
+
+        input = @prompt.select('KICK THE BUCKET OPTIONS:') do |menu|
+            menu.choice 'Set Up Your 10 Activities', 1
+            menu.choice 'View Your Activities List', 2
+            menu.choice 'Edit Your Activities', 3
+            menu.choice 'Mark Activities as TICKED OFF', 4
+            menu.choice 'See Your Ticked Progress', 5
+            menu.choice 'EXIT to REAL LIFE', 6
+        end
+
+        menu_selector(input)
+
+        # puts 'KICK THE BUCKET OPTIONS:'
+        # puts '1. Set Up Your 10 Activities'
+        # puts '2. View Your Activities List'
+        # puts '3. Edit Your Activites'
+        # puts '4. Mark Activities as TICKED OFF'
+        # puts '5. See Your Ticked Progress'
+        # puts '6. EXIT to REAL LIFE'
+
+        # puts "---" * 40
+        # puts 'ENTER THE NUMBER OF YOUR CHOICE BELOW'
         puts "---" * 40
     end
 
