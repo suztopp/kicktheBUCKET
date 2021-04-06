@@ -13,7 +13,7 @@ class Activities
         @activity_name = activity_name
         @time_needed = time_needed
         @activity_reason = activity_reason
-        @ticked = false                         #is this right??
+        @ticked = false                        #starts each instance of activity as FALSE - not ticked off
     end
 
 end
@@ -22,12 +22,6 @@ end
 
 
 class App
-    
-    # def initialize
-    #     # @activities = []
-    #     # @file_path = file_path
-    #     # load_data(file_path)
-    # end
 
     # def run
 
@@ -48,7 +42,7 @@ class App
     def menu_selector(option_select)
         case option_select
         when 1
-            until $activities.length == 3 do
+            until $activities.length == 4 do
                 system 'clear'
                 display_add_activity
             end 
@@ -75,6 +69,15 @@ class App
             display_menu
             menu_selector(select_menu)
         when 4
+            system 'clear'
+            display_activities
+            puts 'Enter Your Number Choice Below for ACTIVITY TO TICK OFF YOUR LIST'
+            index = select_activity
+            ticked_off(index)
+            puts "#{index+1}. Activity: #{$activities[index].activity_name} is now TICKED OFF WOO!!!!!!!!!"
+            puts "---" * 40
+            display_menu
+            menu_selector(select_menu)
             #marked activities ticked
         when 5
             #see ticked progress
@@ -162,7 +165,7 @@ class App
 
     def display_activity(activity,index)
         #     puts "#{index+1} Activity: #{activity[:activity]}"
-        puts "#{index+1}. Activity: #{activity.activity_name} - Time Needed: #{activity.time_needed} - Reason: #{activity.activity_reason}"
+        puts "#{index+1}. Activity: #{activity.activity_name} - Time Needed: #{activity.time_needed} - Reason: #{activity.activity_reason} - Ticked Off?: [#{activity.ticked ? 'TICKED' : ' '}]"
     end
     
 
@@ -180,6 +183,12 @@ class App
 
     def edit_activity(edited_activity, index)
         $activities[index] = edited_activity
+    end
+
+
+
+    def ticked_off(index)
+        $activities[index].ticked = !$activities[index].ticked
     end
 
 
