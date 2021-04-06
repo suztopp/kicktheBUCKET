@@ -36,7 +36,7 @@ class App
 
     def run_normal
         loop do
-            system 'clear'
+            # system 'clear'
             display_welcome
             puts "---" * 40
             display_menu
@@ -66,8 +66,8 @@ class App
             display_activities
             puts 'Enter Your Number Choice Below for ACTIVITY TO EDIT'
             index = select_activity
-            display_add_activity
-            #edit activities
+            edit_activity(build_activity ,index)
+            display_menu
         when 4
             #marked activities ticked
         when 5
@@ -127,9 +127,7 @@ class App
     # end
 
 
-
-    def display_add_activity
-
+    def build_activity
         puts "---" * 40
         a = Artii::Base.new
         puts a.asciify('ACTIVITY INFO')
@@ -147,6 +145,12 @@ class App
         #     ticked: false
         # ]
         activity = Activities.new(activity_name,time_needed,activity_reason)
+    end
+
+
+    def display_add_activity
+
+        activity = build_activity
         $activities <<  activity                
         #push new instances of activity into Activities array
 
@@ -176,9 +180,9 @@ class App
 
 
 
-    # def edit_activity(edited_activity, index)
-    #     $activities[index][:activity] = edited_activity
-    # end
+    def edit_activity(edited_activity, index)
+        $activities[index] = edited_activity
+    end
 
 
 
