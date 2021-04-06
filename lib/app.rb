@@ -1,5 +1,6 @@
 require 'json'
 require 'artii'
+require 'progress_bar'
 
 
 $activities = []                        #global
@@ -80,6 +81,11 @@ class App
             menu_selector(select_menu)
             #marked activities ticked
         when 5
+            progress_bar
+
+            puts "---" * 40
+            display_menu
+            menu_selector(select_menu)
             #see ticked progress
         when 6
             # File.write(@file_path, @activities.to_json)
@@ -197,6 +203,18 @@ class App
         gets.to_i - 1
     end
 
+
+    def progress_bar
+        
+        bar = ProgressBar.new(100, :bar, :percentage)
+
+        1.times do
+        sleep 0.1
+        bar.increment! 10
+        bar.puts "YOU CAN DO IT"
+        end
+
+    end
 
 
     def bucket_logo
