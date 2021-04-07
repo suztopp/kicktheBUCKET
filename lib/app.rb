@@ -36,16 +36,6 @@ class App
             display_welcome
             puts "---" * 40
             display_menu
-            # menu_selector(select_menu)
-            # input = @prompt.select('KICK THE BUCKET OPTIONS:') do |menu|
-            #     menu.choice 'Set Up Your 10 Activities', 1
-            #     menu.choice 'View Your Activities List', 2
-            #     menu.choice 'Edit Your Activities', 3
-            #     menu.choice 'Mark Activities as TICKED OFF', 4
-            #     menu.choice 'See Your Ticked Progress', 5
-            #     menu.choice 'EXIT to REAL LIFE', 6
-            # end
-            # menu_selector(input)
         end
     end
 
@@ -103,11 +93,12 @@ class App
             progress_bar
             puts "---" * 40
             display_menu
-            # menu_selector(select_menu)
             #see ticked progress
         when 6
             # File.write(@file_path, @activities.to_json)
-            exit  
+            a = Artii::Base.new
+            puts a.asciify('LIVE YOUR LIFE!').green
+            exit 
         end
     end
 
@@ -117,7 +108,6 @@ class App
         puts "Welcome to:"
         a = Artii::Base.new
         puts a.asciify('KICK THE BUCKET!!').green.on_black
-        # puts "KICK THE BUCKET!!"
         bucket_logo
         puts "---" * 40
         puts "Your one stop destination for making"
@@ -139,26 +129,13 @@ class App
         end
 
         menu_selector(input)
-
-        # puts 'KICK THE BUCKET OPTIONS:'
-        # puts '1. Set Up Your 10 Activities'
-        # puts '2. View Your Activities List'
-        # puts '3. Edit Your Activites'
-        # puts '4. Mark Activities as TICKED OFF'
-        # puts '5. See Your Ticked Progress'
-        # puts '6. EXIT to REAL LIFE'
-
-        # puts "---" * 40
-        # puts 'ENTER THE NUMBER OF YOUR CHOICE BELOW'
         puts "---" * 40
     end
-
 
 
     def select_menu
         gets.to_i
     end
-
 
 
     # def load_data(file_path)
@@ -168,7 +145,6 @@ class App
     #     end
     # end
     
-
 
     def build_activity
         puts "---" * 40
@@ -186,17 +162,13 @@ class App
     end
 
 
+
     def display_add_activity
 
         activity = build_activity
-        $activities <<  activity                
-        #push new instances of activity into Activities array
+        $activities <<  activity                #push new instances of activity into Activities array
 
     end
-
-    # def activity_info
-    #     gets.strip
-    # end
 
 
 
