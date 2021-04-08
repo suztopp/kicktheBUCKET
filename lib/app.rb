@@ -47,6 +47,7 @@ class App
                 system 'clear'
                 display_add_activity
             end
+            system 'clear'
             puts "---" * 30
             puts "---" * 30
             a = Artii::Base.new
@@ -63,6 +64,7 @@ class App
             display_activities
             puts 'Enter Your Number Choice Below for ACTIVITY TO EDIT'
             index = select_activity
+
             edit_activity(build_activity ,index)
             system 'clear'
             a = Artii::Base.new
@@ -143,6 +145,13 @@ class App
 
         activity = Activities.new(activity_name,time_needed,activity_reason)
     end
+
+    # def input_fix                                                     #need to come back and fix this method to apply to above method
+    #     while input.empty? do
+    #         input = gets.chomp
+    #         puts "You have to enter something here for it to actually mean something buddy! Try again :)"
+    #     end
+    # end
 
     def display_add_activity
         activity = build_activity
