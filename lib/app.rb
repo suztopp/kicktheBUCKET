@@ -1,4 +1,3 @@
-require 'json'
 require 'artii'
 require 'progress_bar'
 require 'tty-prompt'
@@ -27,9 +26,24 @@ class App
         @file_name = 'data/bucket.csv'
     end
 
-    # def run
+    def run
+        if ARGV.empty?
+            run_normal
+        else    
+            runargv
+        end
+    end
 
-    # end
+    def runargv
+        first, *other = ARGV
+        ARGV.clear
+        case first
+        when '--help'
+            display_help
+        else
+            puts "Invalid Command Line Argument, only --help currently available, please try again :)"
+        end
+    end
 
     def run_normal
         load_activities
@@ -45,7 +59,7 @@ class App
 
         case option_select
         when 1
-            until $activities.length == 3 do
+            until $activities.length == 10 do
                 system 'clear'
                 display_add_activity
             end
@@ -76,6 +90,16 @@ class App
             #edit activities
         when 4
             display_activities
+            puts 'Enter Your Number Choice Below for ACTIVITY TO DELETE FOREVER!'
+            delete_activity
+            puts "ACTIVITY DELETED FOREVER MWA HA HA HA"
+            a = Artii::Base.new
+            puts a.asciify('OPTIONS').green.on_black
+            puts "---" * 30
+            display_menu
+            #delete activity
+        when 5
+            display_activities
             puts 'Enter Your Number Choice Below for ACTIVITY TO TICK OFF YOUR LIST'
             index = select_activity
             ticked_off(index)
@@ -83,12 +107,12 @@ class App
             puts "---" * 30
             display_menu
             #marked activities ticked
-        when 5
+        when 6
             progress_bar
             puts "---" * 30
             display_menu
             #see ticked progress
-        when 6
+        when 7
             save_activities                                             #call method below outlining how to save and where to
             a = Artii::Base.new
             puts a.asciify('GO LIVE YOUR LIFE!').green
@@ -110,11 +134,12 @@ class App
     def display_menu
         input = @prompt.select('BUCKET OPTIONS:') do |menu|
             menu.choice 'Set Up Your 10 Activities', 1
-            menu.choice 'View Your Activities List', 2
-            menu.choice 'Edit Your Activities', 3
-            menu.choice 'Mark Activities as TICKED OFF', 4
-            menu.choice 'See Your Ticked Progress', 5
-            menu.choice 'EXIT to REAL LIFE', 6
+            menu.choice 'View Your Bucket Activities', 2
+            menu.choice 'Edit Your Existing Activities', 3
+            menu.choice 'Delete Your Activities Forever', 4
+            menu.choice 'Mark Activities as TICKED OFF your list', 5
+            menu.choice 'See Your Ticked Progress', 6
+            menu.choice 'EXIT to REAL LIFE', 7
         end
         menu_selector(input)
         puts "---" * 30
@@ -178,8 +203,9 @@ class App
         $activities[index] = edited_activity
     end
 
-    def delete_activity(index)
-        $activities[index].delete
+    def delete_activity
+        index = select_activity
+        $activities.delete(index)
     end
 
     def ticked_off(index)
@@ -210,13 +236,12 @@ class App
                 csv << [$activities[i].activity_name,$activities[i].time_needed,$activities[i].activity_reason,$activities[i].ticked]       #pushes the $activities arrays in by index
             end
         end
-
     end
 
     def load_activities
-        CSV.foreach(@file_name, headers: true) do |row|
-            ticked=row["ticked"]=="true"
-            $activities.push(Activities.new(row["activity_name"],row["time_needed"],row["activity_reason"],ticked))  
+        CSV.foreach(@file_name, headers: true) do |row|                                                                                     #when loading the csv for each row do
+            ticked=row["ticked"]=="true"                                                                                                    #look for ticked in ticked, and convert to boolean true, else false
+            $activities.push(Activities.new(row["activity_name"],row["time_needed"],row["activity_reason"],ticked))                         #telling ruby how to push the info into the array for each row
         end
 
     end
@@ -241,5 +266,11 @@ class App
         :_           _:
           '''-----'''
         "
+    end
+
+    def display_help
+        puts "WELCOME TO THE KICK THE BUCKET HELP FILE"
+        puts "test"
+        exit
     end
 end
