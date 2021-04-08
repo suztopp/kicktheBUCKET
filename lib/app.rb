@@ -10,11 +10,11 @@ $activities = []                        #global
 class Activities
 
     attr_accessor :activity_name, :time_needed, :activity_reason, :ticked
-    def initialize (activity_name, time_needed, activity_reason)
+    def initialize (activity_name, time_needed, activity_reason, ticked=false)
         @activity_name = activity_name
         @time_needed = time_needed
         @activity_reason = activity_reason
-        @ticked = false                        #starts each instance of activity as FALSE - not ticked off - so it can be changed as they do them
+        @ticked = ticked                        #starts each instance of activity as FALSE - not ticked off - so it can be changed as they decide to change them
     end
 
 end
@@ -24,6 +24,7 @@ class App
     def initialize
         @bar = ProgressBar.new(100, :bar, :percentage)
         @prompt = TTY::Prompt.new
+        @file_name = 'data/bucket.csv'
     end
 
     # def run
@@ -31,6 +32,7 @@ class App
     # end
 
     def run_normal
+        load_activities
         loop do
             display_welcome
             puts "---" * 40
@@ -87,6 +89,7 @@ class App
             display_menu
             #see ticked progress
         when 6
+            save_activities                                             #call method below outlining how to save and where to
             a = Artii::Base.new
             puts a.asciify('GO LIVE YOUR LIFE!').green
             exit 
@@ -175,6 +178,10 @@ class App
         $activities[index] = edited_activity
     end
 
+    def delete_activity(index)
+        $activities[index].delete
+    end
+
     def ticked_off(index)
         $activities[index].ticked = !$activities[index].ticked
     end
@@ -194,6 +201,24 @@ class App
             sleep 0.1
             bar.increment! 10
         end
+    end
+
+    def save_activities 
+        column_header = ["activity_name","time_needed","activity_reason","ticked"]                                                          #create headers in csv to match keys
+        CSV.open(@file_name, "w",:write_headers=>true,:headers=>column_header) do |csv|                                                     #opens my created (blank first time) csv file bucket.csv, and fills the headers via column set up
+            for i in 0...$activities.length                                                                                                 #for each array in activities, push to csv
+                csv << [$activities[i].activity_name,$activities[i].time_needed,$activities[i].activity_reason,$activities[i].ticked]       #pushes the $activities arrays in by index
+            end
+        end
+
+    end
+
+    def load_activities
+        CSV.foreach(@file_name, headers: true) do |row|
+            ticked=row["ticked"]=="true"
+            $activities.push(Activities.new(row["activity_name"],row["time_needed"],row["activity_reason"],ticked))  
+        end
+
     end
 
     def bucket_logo
