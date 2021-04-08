@@ -39,7 +39,6 @@ The user will be able to set up their initial list of 10 Bucket List Goals and t
 - Terminal
 - rspec gem
 - artii gem
-- json gem
 - progress_bar gem
 - tty-prompt gem
 - colorize gem
@@ -47,8 +46,6 @@ The user will be able to set up their initial list of 10 Bucket List Goals and t
 #### Links for Gems
 
 https://rubygems.org/gems/artii/versions/2.1.2
-
-https://rubygems.org/gems/json
 
 https://rubygems.org/gems/rspec/versions/3.5.0
 

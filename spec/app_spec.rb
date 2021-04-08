@@ -10,17 +10,23 @@ RSpec.describe App do
         expect($activities).to eq []
     end
 
-    it 'should '
+    describe 'Class Rspec' do
+        it 'should be an instance of App' do
+          expect(subject).to be_a App
+        end
+      end
 
-    #     before(:each) do
-    #         $activities = [{activity: 'Test Activity', time_needed: 'one year', activity_reason: 'Activity Reason', ticked: false }]
-    #     end
 
-    #     it 'should display all of our bucket activities' do
-    #         expected_output = "1. Activity: Test Activity - Time Needed: one year - Reason: Activity Reason - Ticked Off?: [ ]\n"
-    #         expect(subject.display_activity).to output(expected_output).to_stdout
-    #     end
-    # end
+    context 'displaying activities' do
+        before(:each) do
+            $activities = [{ activity_name: 'Test Activity', time_needed: 'one year', activity_reason: 'Activity Reason', ticked: false }]
+        end
+
+        it 'should display all of our bucket activities' do
+            expected_output = "1. Activity: Test Activity - Time Needed: one year - Reason: Activity Reason - Ticked Off?: [ ]\n"
+            expect{subject.display_activities}.to output(expected_output).to_stdout
+        end
+    end
     
     # context 'adding activities' do
 
