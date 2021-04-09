@@ -84,6 +84,7 @@ class App
 
             edit_activity(build_activity ,index)
             system 'clear'
+            puts "ACTIVITY SUCCESSFULLY UPDATED".green.bold
             a = Artii::Base.new
             puts a.asciify('OPTIONS').green.bold
             puts "---" * 30
@@ -93,18 +94,20 @@ class App
             display_activities
             puts 'Enter Your Number Choice Below for ACTIVITY TO DELETE FOREVER!'
             delete_activity
-            puts "ACTIVITY DELETED FOREVER MWA HA HA HA"
+            system 'clear'
+            puts "ACTIVITY DELETED FOREVER MWA HA HA HA".green.bold
             a = Artii::Base.new
             puts a.asciify('OPTIONS').green.bold
             puts "---" * 30
             display_menu
-            #delete activity
+            #delete activity - added extra
         when 5
             display_activities
             puts 'Enter Your Number Choice Below for ACTIVITY TO TICK OFF YOUR LIST'
             index = select_activity
             ticked_off(index)
-            puts "#{index+1}. Activity: #{$activities[index].activity_name} is now TICKED OFF WOO!!!!!!!!!"
+            system 'clear'
+            puts "#{index+1}. Activity: #{$activities[index].activity_name} is now TICKED OFF WOO!!!!!!!!!".green.bold
             puts "---" * 30
             display_menu
             #marked activities ticked
@@ -188,7 +191,7 @@ class App
     end
 
     def display_activity(activity,index)
-        puts "#{index+1}. Activity: #{activity.activity_name} - Time Needed: #{activity.time_needed} - Reason: #{activity.activity_reason} - Ticked Off?: [#{activity.ticked ? 'TICKED' : ' '}]"
+        puts "#{index+1}. Activity: " + "#{activity.activity_name.green} - Time Needed: #{activity.time_needed.green} - Reason: #{activity.activity_reason.green} - Ticked Off?: [#{activity.ticked ? 'TICKED' : ' '}]"
     end
 
     def display_activities
