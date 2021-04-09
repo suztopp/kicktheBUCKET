@@ -41,7 +41,7 @@ class App
         when '--help'
             display_help
         else
-            puts "Invalid Command Line Argument, only --help currently available, please try again :)"
+            puts "Invalid Command Line Argument, only --help currently available, please try again (or just run ruby kickthebucket.rb) :)"
         end
     end
 
@@ -64,10 +64,11 @@ class App
                 display_add_activity
             end
             system 'clear'
+            puts "BUCKET ACTIVITIES FULL AND READY TO BE DONE!!!!!".green.bold
             puts "---" * 30
             puts "---" * 30
             a = Artii::Base.new
-            puts a.asciify('OPTIONS').green.on_black
+            puts a.asciify('OPTIONS').green.bold
             display_menu
             #setup activity list
         when 2
@@ -84,7 +85,7 @@ class App
             edit_activity(build_activity ,index)
             system 'clear'
             a = Artii::Base.new
-            puts a.asciify('OPTIONS').green.on_black
+            puts a.asciify('OPTIONS').green.bold
             puts "---" * 30
             display_menu
             #edit activities
@@ -94,7 +95,7 @@ class App
             delete_activity
             puts "ACTIVITY DELETED FOREVER MWA HA HA HA"
             a = Artii::Base.new
-            puts a.asciify('OPTIONS').green.on_black
+            puts a.asciify('OPTIONS').green.bold
             puts "---" * 30
             display_menu
             #delete activity
@@ -115,7 +116,7 @@ class App
         when 7
             save_activities                                             #call method below outlining how to save and where to
             a = Artii::Base.new
-            puts a.asciify('GO LIVE YOUR LIFE!').green
+            puts a.asciify('GO LIVE YOUR LIFE!').green.bold
             exit 
         end
     end
@@ -123,7 +124,7 @@ class App
     def display_welcome
         puts "Welcome to:"
         a = Artii::Base.new
-        puts a.asciify('KICK THE BUCKET!!').green.on_black
+        puts a.asciify('KICK THE BUCKET!!').green.bold
         bucket_logo
         puts "---" * 30
         puts "Your one stop destination for making"
@@ -148,7 +149,7 @@ class App
     def build_activity
         puts "---" * 30
         a = Artii::Base.new
-        puts a.asciify('ACTIVITY INFO').green.on_black
+        puts a.asciify('ACTIVITY INFO').green.bold
 
         print 'Enter your Dream Bucket List Activity:  '
         activity_name = gets.chomp
@@ -192,7 +193,7 @@ class App
 
     def display_activities
         a = Artii::Base.new
-        puts a.asciify('BUCKET ACTIVITIES').green.on_black
+        puts a.asciify('BUCKET ACTIVITIES').green.bold
         
         for i in 0...$activities.length                     #index 0 to last index including
             display_activity($activities[i],i)              #uses display_activity method to output each index for the Activities array, along with details
@@ -205,7 +206,7 @@ class App
 
     def delete_activity
         index = select_activity
-        $activities.delete(index)
+        $activities.delete_at(index)
     end
 
     def ticked_off(index)
@@ -219,7 +220,7 @@ class App
     def progress_bar
         puts "---" * 30
         a = Artii::Base.new
-        puts a.asciify('ACTIVITY PROGRESS').green.on_black
+        puts a.asciify('ACTIVITY PROGRESS').green.bold
         bar = ProgressBar.new(100, :bar, :percentage)
         bar.puts "YOU CAN DO IT!!!!!!!!!!!!!"
         number = $activities.count {|activity| activity.ticked}
@@ -265,12 +266,31 @@ class App
         :             :
         :_           _:
           '''-----'''
-        "
+        ".green.bold
     end
 
     def display_help
-        puts "WELCOME TO THE KICK THE BUCKET HELP FILE"
-        puts "test"
+        puts "WELCOME TO THE KICK THE BUCKET HELP FILE".green.bold
+        puts "What does this app do you might be asking yourself? Answer - It allows you to enter 10 Bucket Activities that you can check off over time."
+        puts "HOW TO USE THE APP".green.bold
+        puts "When opening the app for the first time you can use the handy dandy menu to navigate to the options"
+        puts "SET UP YOUR 10 ACTIVITIES".green.bold
+        puts "You run through the 10 entry options for your Bucket Activities.  Each item has a NAME, the TIME NEEDED (as a constant reminder of what you need to get done and when)
+        and the ACTIVITY REASON.  This is where you might put 'because COVID ruined everything and I miss travelling and my parents' or something of the like.
+        These 10 Bucket Activities are then stored for all time for you to reference and tick off over time."
+        puts "VIEW YOUR BUCKET ACTIVIIES".green.bold
+        puts "You can use this option to look at your list any time you want after setup.  The Activities will be saved on exit each time you use the app."
+        puts "EDIT YOUR EXISTING ACTIVITIES".green.bold
+        puts "If you select edit, you will be presented with the full Activities list again.  You can select an item with it's line number (simply type in '2' for instance) and
+        you will be taken to the Activity setup page again, enter info for each section again and then it will return you to the menu.  View Activities to see your changed entry."
+        puts "DELETE YOUR ACTIVITIES".green.bold
+        puts "You can delete an entry with this menu option, using the same technique as edit.  Type in the number of the Activity and it will be deleted forever."
+        puts "MARK YOUR ACTIVITES AS TICKED OFF YOUR LIST".green.bold
+        puts "As you physically complete the Activities in real life, you can change them to TICKED OFF in your Activities list in Kick The Bucket.  You can use this to keep tabs on where you're at and how much you have left to get done."
+        puts "SEE YOUR TICKED PROGRESS".green.bold
+        puts "This one is a cool one!  If you select this option you can see a Percentage Progress Bar with your list progress, use this as motivation for getting things done!"
+        puts "EXIT TO REAL LIFE".green.bold
+        puts "This one if self explanatory, select it when you're done and to head out there and TICK OFF YOUR LIFE GOALS!"
         exit
     end
 end

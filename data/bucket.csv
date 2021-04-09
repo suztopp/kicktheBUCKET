@@ -1,4 +1,11 @@
 activity_name,time_needed,activity_reason,ticked
-a,a,a,false
+a,a,a,true
 b,b,b,false
-new,new,new,false
+l,l,l,true
+r,r,r,false
+d,d,d,false
+f,f,f,true
+p,p,p,false
+j,j,j,false
+d,d,d,true
+new last,new last,new last,false
