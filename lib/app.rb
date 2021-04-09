@@ -247,7 +247,9 @@ class App
             ticked=row["ticked"]=="true"                                                                                                    #look for ticked in ticked, and convert to boolean true, else false
             $activities.push(Activities.new(row["activity_name"],row["time_needed"],row["activity_reason"],ticked))                         #telling ruby how to push the info into the array for each row
         end
-
+    rescue Errno::ENOENT
+        File.open(@file_name, "w")
+        retry
     end
 
     def bucket_logo

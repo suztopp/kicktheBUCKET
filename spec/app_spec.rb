@@ -6,12 +6,12 @@ RSpec.describe App do
 
     subject{App.new}
 
-    it 'should have a starting activities array' do
+    it 'should have a starting activities array' do                         #testing that the $activities array starts at the beginning of the app (global) as an empty array before loading in info
         expect($activities).to eq []
     end
 
     describe 'Class Rspec' do
-        it 'should be an instance of App' do
+        it 'should be an instance of App' do                                
           expect(subject).to be_a App
         end
       end
@@ -21,7 +21,7 @@ RSpec.describe App do
             $activities = [Activities.new('Test Activity','one year','Activity Reason')]
         end
 
-        it 'should display all of our bucket activities' do
+        it 'should display all of our bucket activities' do                 #test run to check that the output of method display_activities is as I planned it to be when tested with the above array and has combo
             expected_output = '1. ' + 'Activity: ' + 'Test Activity'.green + ' - Time Needed: ' + 'one year'.green + ' - Reason: ' + 'Activity Reason'.green + ' - Ticked Off?: [ ]'"\n"
             expect{ subject.display_activity($activities.first,0) }.to output(expected_output).to_stdout
         end
