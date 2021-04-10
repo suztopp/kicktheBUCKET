@@ -49,7 +49,7 @@ class App
         load_activities
         loop do
             display_welcome
-            puts "---" * 40
+            puts "---" * 30
             display_menu
         end
     end
@@ -79,10 +79,13 @@ class App
             #view activity list
         when 3
             display_activities
-            puts 'Enter Your Number Choice Below for ACTIVITY TO EDIT'
+            puts 'Enter Your Number Choice Below for ACTIVITY TO EDIT - only enter numbers between 1 and 10'
             index = select_activity
-
-            edit_activity(build_activity ,index)
+            while index < 0 || index > 10
+                puts "Sorry that activity doesn't exist!  Please input a number from 1 to 10"
+                index = select_activity
+            end
+            edit_activity(build_activity, index)
             system 'clear'
             puts "ACTIVITY SUCCESSFULLY UPDATED".green.bold
             a = Artii::Base.new
@@ -92,8 +95,13 @@ class App
             #edit activities
         when 4
             display_activities
-            puts 'Enter Your Number Choice Below for ACTIVITY TO DELETE FOREVER!'
-            delete_activity
+            puts 'Enter Your Number Choice Below for ACTIVITY TO DELETE FOREVER!  - only enter numbers between 1 and 10'
+            index = select_activity
+            while index < 0 || index > 10
+                puts "Sorry that activity doesn't exist!  Please input a number from 1 to 10"
+                index = select_activity
+            end
+            delete_activity(index)
             system 'clear'
             puts "ACTIVITY DELETED FOREVER MWA HA HA HA".green.bold
             a = Artii::Base.new
@@ -103,8 +111,12 @@ class App
             #delete activity - added extra
         when 5
             display_activities
-            puts 'Enter Your Number Choice Below for ACTIVITY TO TICK OFF YOUR LIST'
+            puts 'Enter Your Number Choice Below for ACTIVITY TO TICK OFF YOUR LIST - only enter numbers between 1 and 10'
             index = select_activity
+            while index < 0 || index > 10
+                puts "Sorry that activity doesn't exist!  Please input a number from 1 to 10"
+                index = select_activity
+            end
             ticked_off(index)
             system 'clear'
             puts "#{index+1}. Activity: #{$activities[index].activity_name} is now TICKED OFF WOO!!!!!!!!!".green.bold
@@ -120,6 +132,8 @@ class App
             save_activities                                             #call method below outlining how to save and where to
             a = Artii::Base.new
             puts a.asciify('GO LIVE YOUR LIFE!').green.bold
+            puts "\u00A9 Copyright Suz Topp 2021".green
+            puts " "
             exit 
         end
     end
@@ -187,11 +201,11 @@ class App
 
     def display_add_activity
         activity = build_activity
-        $activities <<  activity                #push new instances of activity into Activities array
+        $activities <<  activity                                        #push new instances of activity into Activities array
     end
 
     def display_activity(activity,index)
-        puts "#{index+1}. Activity: " + "#{activity.activity_name.green} - Time Needed: #{activity.time_needed.green} - Reason: #{activity.activity_reason.green} - Ticked Off?: [#{activity.ticked ? 'TICKED' : ' '}]"
+        puts "#{index+1}. Activity: " + "#{activity.activity_name} - Time Needed: #{activity.time_needed.green} - Reason: #{activity.activity_reason.green} - Ticked Off?: [#{activity.ticked ? 'TICKED' : ' '}]"
     end
 
     def display_activities
@@ -207,8 +221,7 @@ class App
         $activities[index] = edited_activity
     end
 
-    def delete_activity
-        index = select_activity
+    def delete_activity(index)
         $activities.delete_at(index)
     end
 
@@ -275,27 +288,39 @@ class App
     end
 
     def display_help
+        puts " "
         puts "WELCOME TO THE KICK THE BUCKET HELP FILE".green.bold
+        puts "FIRST THING - Installation"
+        puts "Install
+
+        1. Clone the Repo from GitHub - https://github.com/suztopp/kicktheBUCKET
+        1. CD into kicktheBUCKET
+        2. run in terminal - ./run_bucket.sh
+        
+        This will install the gem bundler, then install all the dependent gems, then run Kick the Bucket (ruby kickthebucket.rb - how to run if you don't need to install gems)
+        "
         puts "What does this app do you might be asking yourself? Answer - It allows you to enter 10 Bucket Activities that you can check off over time."
         puts "HOW TO USE THE APP".green.bold
         puts "When opening the app for the first time you can use the handy dandy menu to navigate to the options"
         puts "SET UP YOUR 10 ACTIVITIES".green.bold
-        puts "You run through the 10 entry options for your Bucket Activities.  Each item has a NAME, the TIME NEEDED (as a constant reminder of what you need to get done and when)
-        and the ACTIVITY REASON.  This is where you might put 'because COVID ruined everything and I miss travelling and my parents' or something of the like.
-        These 10 Bucket Activities are then stored for all time for you to reference and tick off over time."
+        puts "You run through the 10 entry options for your Bucket Activities.  Each item has a NAME, the TIME NEEDED (as a constant reminder of what you need to get done and when) and the" 
+        puts "ACTIVITY REASON.  This is where you might put 'because COVID ruined everything and I miss travelling and my parents' or something of the like. These 10 Bucket Activities are"
+        puts "then stored for all time for you to reference and tick off over time."
         puts "VIEW YOUR BUCKET ACTIVIIES".green.bold
         puts "You can use this option to look at your list any time you want after setup.  The Activities will be saved on exit each time you use the app."
         puts "EDIT YOUR EXISTING ACTIVITIES".green.bold
-        puts "If you select edit, you will be presented with the full Activities list again.  You can select an item with it's line number (simply type in '2' for instance) and
-        you will be taken to the Activity setup page again, enter info for each section again and then it will return you to the menu.  View Activities to see your changed entry."
+        puts "If you select edit, you will be presented with the full Activities list again.  You can select an item with it's line number (simply type in '2' for instance) and you will be"
+        puts "taken to the Activity setup page again, enter info for each section again and then it will return you to the menu.  View Activities to see your changed entry."
         puts "DELETE YOUR ACTIVITIES".green.bold
         puts "You can delete an entry with this menu option, using the same technique as edit.  Type in the number of the Activity and it will be deleted forever."
         puts "MARK YOUR ACTIVITES AS TICKED OFF YOUR LIST".green.bold
-        puts "As you physically complete the Activities in real life, you can change them to TICKED OFF in your Activities list in Kick The Bucket.  You can use this to keep tabs on where you're at and how much you have left to get done."
+        puts "As you physically complete the Activities in real life, you can change them to TICKED OFF in your Activities list in Kick The Bucket.  You can use this to keep tabs on where"
+        puts "you're at and how much you have left to get done."
         puts "SEE YOUR TICKED PROGRESS".green.bold
         puts "This one is a cool one!  If you select this option you can see a Percentage Progress Bar with your list progress, use this as motivation for getting things done!"
         puts "EXIT TO REAL LIFE".green.bold
         puts "This one if self explanatory, select it when you're done and to head out there and TICK OFF YOUR LIFE GOALS!"
+        puts " "
         exit
     end
 end

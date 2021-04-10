@@ -11,7 +11,7 @@ RSpec.describe App do
     end
 
     describe 'Class Rspec' do
-        it 'should be an instance of App' do                                
+        it 'should be instance of App' do                                   #testing with an rspec matcher be_a that subject is an instance of App 
           expect(subject).to be_a App
         end
       end
@@ -38,12 +38,12 @@ RSpec.describe App do
         end
     end
 
-    context 'deleting activites' do
+    context 'deleting activities' do
         before(:each) do
             $activities = [Activities.new('Test Activity','one year','Activity Reason')]
         end
 
-        it 'should delete a task at index 0' do                             #test to check if via the test activity above, if the delete_activity method was run it would leave the test array empty
+        it 'should delete a task at index 0' do                             #test to check via the test activity above, if the delete_activity method was run it would leave the test array empty
             subject.delete_activity
             expect($activities).to be_empty
         end
