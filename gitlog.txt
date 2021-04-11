@@ -1,0 +1,251 @@
+commit dace12364b75ee3f6b353354ee080730d8d5519b
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sun Apr 11 12:46:43 2021 +1000
+
+    finishing readme and adding pics to the docs folder - finalising before submit
+
+commit 901b0d21dfc558fc9bae0dd59f518ea7d3124c4f
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 10 21:29:30 2021 +1000
+
+    final touches and lots of work on the readme plus error handling
+
+commit 89adfa8c93229ef09d0d6e38d1cfc5daa1671886
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Fri Apr 9 21:14:08 2021 +1000
+
+    added script file and a test for deleting
+
+commit bc903644d109017438d5dc7b7feac8ccec34b888
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Fri Apr 9 14:34:55 2021 +1000
+
+    running tests on activities csv with full info, and fixing and adding rspec tests
+
+commit 08a56fa20fcaa7483f906bb11be3aba0175edb12
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Fri Apr 9 11:48:28 2021 +1000
+
+    working on --help file and changing visual elements
+
+commit 1b6cd139ea39548ee16ef9839f502b966f8f847c
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 8 15:49:39 2021 +1000
+
+    added command line arguments start
+
+commit 6c7c17f96dc43c30328f2e794b415a914621b918
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 8 14:35:42 2021 +1000
+
+    added persistent storage woo
+
+commit 7d8e998e6fc8ace69af0c68a19695b6eb6c06218
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 8 12:01:51 2021 +1000
+
+    4 rspec tests finalised
+
+commit 19eccc95e9fe0fc204881472ed8df9c2873e3500
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 8 10:00:08 2021 +1000
+
+    removed Json and started csv prep also refactoring
+
+commit 19e9dbd78145dac90a82f3ca2b258442c6298707
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Wed Apr 7 14:59:21 2021 +1000
+
+    worked on various things, mostly testing in pm
+
+commit 2e3ba757d6ea12b9ca1317e9826e3bb241fab5c5
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 14:56:47 2021 +1000
+
+    updated colorized for artii
+
+commit bfd734b5cad815f2663b12132ae68de9206cf664
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 14:37:20 2021 +1000
+
+    tty prompt menu working on all selections
+
+commit 25570879859213b52257fb0dcb793fc336dd71f5
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 14:16:57 2021 +1000
+
+    added tty prompt to the first menu and commented out rspec tests that no longer work since changes
+
+commit 500570cd869c2bec289410d8a9e37e1614b26074
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 11:29:40 2021 +1000
+
+    added progressbar gem and implemented in menu option 5 not complete
+
+commit 83a6f1c9682e68f45d95773ffd10fb3676d05be6
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 10:59:09 2021 +1000
+
+    have the ticked off menu option working now
+
+commit 585c0d52355f01d452a2d65b6760062ef1339e46
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 10:40:14 2021 +1000
+
+    got the edit and view menu options working
+
+commit 33b0ae55b07b7e75f2ae65934935b59187a13243
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 10:25:45 2021 +1000
+
+    working on editing with Ed
+
+commit 0052e31453d6f4b8aa3661e7fb86cae8710ba8be
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 09:59:23 2021 +1000
+
+    thanksfully got the display working with a class for the activities
+
+commit d2248e0a3fd026e01d791804addd1af6c7a0fa58
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Tue Apr 6 09:06:40 2021 +1000
+
+    playing with adding a class to try and fix my display issues - not 100% sure yet on how to implement
+
+commit f6439c241ec1eb65f352c4d2d92bc409e038e935
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Mon Apr 5 19:40:04 2021 +1000
+
+    fixing edit
+
+commit 9bfa958130a9840cd5f4ce55883694d36c59f56b
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Mon Apr 5 14:22:01 2021 +1000
+
+    further work on editing activities
+
+commit a1a88ccd3061ad75f0fb5ac052b0ab22c309cfc6
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Mon Apr 5 12:20:40 2021 +1000
+
+    working on editing
+
+commit ebc5c92d30487e1863beacb83f830288324fbf35
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Mon Apr 5 11:33:45 2021 +1000
+
+    trying to get option 1 and 3 to work
+
+commit 8ba237868ee650bf468ff47c882b3d36df1e82cc
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sun Apr 4 23:47:29 2021 +1000
+
+    working on json and have not gotten it to work
+
+commit 1fa4124684859338cd6f0b2090b7c086d0d81b50
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sun Apr 4 10:31:42 2021 +1000
+
+    trying to get loop to work again for adding activities, currently stuck, updated README
+
+commit e55f0bfd4343cd7c54663539cff08c0d280bf7af
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sun Apr 4 09:46:51 2021 +1000
+
+    rspec updates
+
+commit 32fbb235479f8eb71234b9b9bae90969a143fde7
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 15:44:26 2021 +1100
+
+    fixed up add activity issues
+
+commit a5c254e9f9643b916eaa6b31fa50d6a3320b8def
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 15:26:30 2021 +1100
+
+    readme update and trying to get add activities to work
+
+commit b41bc290742471fd3bb242d2b27e722af0b858f7
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 14:56:34 2021 +1100
+
+    added in artii and bucket ascii
+
+commit 21ba480569191355603180007cc32b5f0d4e3890
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 14:11:07 2021 +1100
+
+    stuck on display menu making lots of changes to try and have it display
+
+commit 983a017670e9e0f93ed658eb2c9f33c1518be09f
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 13:55:21 2021 +1100
+
+    got help with how to limit entries to 10 for activities and implemented
+
+commit 784ee19e4d16c154775bf3eeca859fb7405ec79c
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 12:21:39 2021 +1100
+
+    editing menu along with our class conference video
+
+commit b692e14c7b29f12102b5834bd2f39012b52f9579
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 11:40:09 2021 +1100
+
+    display menu work and deciding on array elements for activities
+
+commit f81719e06820a7d0ba750df06a5f8399ba53489e
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Sat Apr 3 11:10:06 2021 +1100
+
+    working on menu
+
+commit 26bcce2901a0f142c76b8c03643bdbca19176bd7
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 21:54:09 2021 +1100
+
+    end of first day test and user input method
+
+commit 8f0213cff75a60ac8bd6404b56d750586db98e41
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 21:43:10 2021 +1100
+
+    working on test and input
+
+commit 37e44d6bd44119e4f4bd71114d166ceb63f38af7
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 15:56:12 2021 +1100
+
+    added welcome message
+
+commit 43176f61a610339ed6e69850da1b3d60f8ff9c00
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 15:41:18 2021 +1100
+
+    wrote welcome method
+
+commit e400e4d4cf33d13ff85db55c715e90adab9078b4
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 14:21:28 2021 +1100
+
+    rspec first two tests
+
+commit bd2c230604e8b490c5494c9ae170e5e2526bf8fc
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 13:07:27 2021 +1100
+
+    gem bundler and rspec add
+
+commit 03df840014d3e50f2a25d6d6ca1868dd431ebd5c
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 12:14:47 2021 +1100
+
+    readme and first rb file
+
+commit 06a2e15e196eec0f8c6b2bc1de8ce8ffb789bfb9
+Author: suztopp <suzannetopp81@gmail.com>
+Date:   Thu Apr 1 12:10:15 2021 +1100
+
+    initial commit
