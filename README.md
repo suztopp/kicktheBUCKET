@@ -41,7 +41,7 @@ This will install the gem bundler, then install all the dependent gems, then run
 #### Dependencies
 
 - Ruby (https://www.ruby-lang.org/en/)
-- Terminal ()
+- Terminal 
 - rspec gem
 - artii gem
 - progress_bar gem
@@ -102,15 +102,36 @@ I have implemented a cool percentage progress bar that increments every time an 
 
 **VARIABLES AND SCOPE**
 
+I kept the classes to a minimum as it's my first ever coding project, and I wanted to work on my understanding of code in general first. I have used a global array to house the Bucket Activity hash data, which allowed me to reference it anywhere in the project.
+I have used Instance Variables for all of my data and extras.  The Activities class has instance variables for the activity_name, time_needed, activity_reason, and the ticked boolean value. These are initialized with the first call of the $activities array.
+In the App class I used @bar for the progress bar element, @prompt for the tty prompt menu, and @file_name to initialize my csv file. 
+
 **LOOPS AND CONDITIONAL CONTROL STRUCTURES**
+
+I have used various loops and control structures in my code.
+While Loops - Error Handling in various methods
+Case Statements - menu selection
+If Else Statements - running command line arguments
+Loop Do - In my Welcome Menu
+For Loop - In my Display Activities Method - used on most pages of the app
 
 **ERROR HANDLING & TESTING**
 
 I utilised Rspec for testing, although kept this at a minimum as I was using TTY Prompt menus to make selections cleaner.
+I have also used loops to make sure the data entered is either excepted as it's within the parameters, or asked for re entry until the correct input is given.
+I am happy currently that the app is quite safe to use in regards to errors/testing.
 
-<img src='docs/rspec_tests.jpg' alt="rspec" width=700px>
+<img src='docs/rspec_tests.jpg' alt="rspec" width=700px><br>
+
+<img src='docs/input_error_handling.jpg' alt="input error handling" width=700px><br>
+
+<img src='docs/error_handling_code.jpg' alt="error handling code" width=700px>
 
 **COMMAND LINE ARGUMENT FOR --help**
+
+The user can input a command line argument, with both the ruby file and the shell file.  This help file is a fun approach to explaining how to run and install the program, and how to use the functions within the app.
+
+<img src='docs/command_line_help.jpg' alt="command line argument --help" width=700px>
 
 **USER FLOW AND UML CHART**
 
@@ -179,3 +200,9 @@ When you're done with what you need to create, read, update, delete and TICK OFF
 
 <img src='docs/exit_to_real_life_screen_END.jpg' alt="exit pic" width=700px>
 
+---
+
+#### THANK YOU
+
+Thank you for reading the ReadMe that accompanies my kicktheBucket application.  I appreciate the time you've taken to read through everything, and hope you enjoy using the application if you clone the files.  This has been an extremely rewarding assignment that has taught me a lot about Ruby and terminal applications.  
+© Copyright Suz Topp - Melbourne 2021
